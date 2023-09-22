@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Salário</title>
+    <style>button {
+        font-size: 24px; /* Aumenta o tamanho da fonte */
+        padding: 20px 40px; /* Aumenta o espaço interno do botão */
+    }</style>
+    <script>
+        function calcularSalario() {
+            // Solicita ao usuário que insira um salário
+            const salario = parseFloat(prompt("Por favor, insira o seu salário:"));
+
+            if (isNaN(salario)) {
+                alert("Por favor, insira um valor de salário válido.");
+                return;
+            }
+
+            // Apresenta as opções ao usuário
+            const opcao = prompt("Digite o Plano (Letra Maiúscula):\nA - Acrescentar 10%\nB - Acrescentar 15%\nC - Acrescentar 20%");
+
+            // Calcula o novo salário com base na escolha do usuário
+            let novoSalario = salario;
+            switch (opcao) {
+                case 'A':
+                    novoSalario *= 1.10; // Aumento de 10%
+                    break;
+                case 'B':
+                    novoSalario *= 1.15; // Aumento de 15%
+                    break;
+                case 'C':
+                    novoSalario *= 1.20; // Aumento de 20%
+                    break;
+                default:
+                    alert("Opção inválida.");
+                    return;
+            }
+
+            // Exibe o novo salário ao usuário
+            alert(`Seu novo salário é: R$ ${novoSalario.toFixed(2)}`);
+        }
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <button onclick="calcularSalario()">Calcular Salário</button>
+</body>
+</html>
